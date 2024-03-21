@@ -10,7 +10,7 @@ namespace SB.BackgroundGen
     private static readonly Color BgColor = ColorTranslator.FromHtml("#214188");
     private static readonly int Width = 1440;
     private static readonly int Height = 900;
-    private static string SaveFileName = System.Environment.ExpandEnvironmentVariables("%USERPROFILE%\\Pictures\\ssi-bg-info.png");
+    private static string SaveFileName = System.Environment.ExpandEnvironmentVariables("%USERPROFILE%\\Pictures\\sb-bg-info.png");
 
     private static bool UseMonospaceFont = true;
     private static bool IncludeUsername = false;
