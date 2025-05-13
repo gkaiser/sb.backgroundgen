@@ -7,7 +7,7 @@ namespace SB.BackgroundGen
 {
   class Program
   {
-    private static readonly Color BgColor = ColorTranslator.FromHtml("#214188");
+    private static Color BgColor = ColorTranslator.FromHtml("#214188");
     private static readonly int Width = 1440;
     private static readonly int Height = 900;
     private static string SaveFileName = System.Environment.ExpandEnvironmentVariables("%USERPROFILE%\\Pictures\\sb-bg-info.png");
@@ -39,6 +39,7 @@ namespace SB.BackgroundGen
         Console.WriteLine($"    -USER, -U - Add username to the output image.");
         Console.WriteLine($"    -SEGOEUI  - Use Segoe UI as the font for the output image.");
         Console.WriteLine($"    -BLANK    - Generates, but does not set, a blank image.");
+        Console.WriteLine($"    -GR(E|A)Y - Generate the image with a gray background, instead of blue.");
         return;
       }
 
@@ -48,6 +49,8 @@ namespace SB.BackgroundGen
         Program.UseMonospaceFont = false;
       if (args.Any(a => a.ToUpper().Contains("-BLANK")))
         Program.Blank = true;
+      if (args.Any(a => a.ToUpper().Contains("-GREY") || a.ToUpper().Contains("-GRAY")))
+        Program.BgColor = ColorTranslator.FromHtml($"#454c5a");
 
       using (var bmp = new Bitmap(Program.Width, Program.Height))
       {
